@@ -1,1 +1,20 @@
-<p>better-form works!</p>
+<form [formGroup]="calcForm">
+    <input formControlName = "fieldOne" (keyup)="clearResult()"
+    [class.input-invalid]="fieldOne?.invalid"
+    [class.input-valid]="fieldOne?.valid">
+    +
+    <input formControlName = "fieldTwo" (keyup)="clearResult()"
+    [class.input-invalid]="fieldTwo?.invalid"
+    [class.input-valid]="fieldTwo?.valid">
+    <button (click)="addAnyway()" [disabled]="calcForm.invalid">CALC</button>
+    <div>
+        <span *ngIf="fieldOne?.invalid && fieldOne?.errors?.required">left field has no value</span>
+    </div>
+    <div>
+        <span *ngIf="fieldTwo?.invalid && fieldTwo?.errors?.required">right field has no value</span>
+    </div>
+    <div>
+        <span *ngIf="fieldTwo?.invalid && fieldTwo?.errors?.maxlength">right field can contain maximum 5 characters</span>
+    </div>
+</form>
+<div>{{result}}</div>
