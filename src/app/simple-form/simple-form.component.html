@@ -1,5 +1,13 @@
-<input [(ngModel)]="text1" required>
-+
-<input [(ngModel)]="text2" required>
-<button (click)="addAndShow()">CALC</button>
-<div>{{result}}</div>
+<form #calcForm="ngForm">
+    <input [(ngModel)]="text1" name="fieldOne" required #fieldOne="ngModel">
+    +
+    <input [(ngModel)]="text2" name="fieldTwo" required #fieldTwo="ngModel">
+    <button (click)="addAndShow()" [disabled]="fieldOne.invalid||fieldTwo.invalid">CALC</button>
+    <div>{{result}}</div>
+    <div>
+        <span *ngIf="fieldOne.invalid" class="my-invalid">left field has no value</span>
+    </div>
+    <div>
+        <span *ngIf="fieldTwo.invalid">right field has no value</span>
+    </div>
+</form>
