@@ -1,7 +1,7 @@
 <nav>
-    <a routerLink="./simple-form">Simple Form</a>|
-    <a routerLink="./better-form">Better Form</a>|
-    <a routerLink="./controls">Controls</a>
+    <a *ngFor = "let path of paths"
+        routerLinkActive = "selected-item" [routerLink]="path.pathname">{{path.title}}
+    </a>
 </nav>
 <div>
     <router-outlet></router-outlet>    
