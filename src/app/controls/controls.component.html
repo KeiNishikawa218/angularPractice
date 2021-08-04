@@ -1,0 +1,11 @@
+<h2> coffee spices list</h2>
+
+<form [formGroup] = "coffeeForm" novalidate>
+    <div>
+        <label>spice:<input formControlName = "name"></label>
+    </div>
+    <div>
+        <label>taste:<input formControlName = "taste" size = "50"></label>
+    </div>
+</form>
+<p>form value:{{coffeeForm.value|json}}</p>
