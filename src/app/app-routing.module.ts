@@ -1,10 +1,23 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
-const routes: Routes = [];
+import { RouterModule, Routes } from '@angular/router';
+import { SimpleFormComponent } from './simple-form/simple-form.component';
+import { BetterFormComponent } from './better-form/better-form.component';
+import { ControlsComponent } from './controls/controls.component';
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+    CommonModule,
+    RouterModule.forRoot([
+      {path: 'simple-form', component: SimpleFormComponent},
+      {path: 'better-form', component: BetterFormComponent},
+      {path: 'controls', component: ControlsComponent}
+    ])
+  ],
+  exports: [
+    RouterModule
+  ],
+  declarations: []
 })
-export class AppRoutingModule { }
+export class AppRoutingModule{ }
