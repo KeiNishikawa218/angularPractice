@@ -1,11 +1,28 @@
-<h2> coffee spices list</h2>
+<h2> coffee blend list</h2>
 
 <form [formGroup] = "coffeeForm" novalidate>
     <div>
-        <label>spice:<input formControlName = "name"></label>
+        <label>blend:<input formControlName = "name"></label>
     </div>
     <div>
         <label>taste:<input formControlName = "taste" size = "50"></label>
+    </div>
+    <div>
+        <span *ngFor = "let state of hotcoldsel">
+            <input type = "radio" formControlName = "hotcold" [value] = "state">{{state}}
+        </span>
+    </div>
+    <div>
+        <span *ngFor = "let item of addssel">
+            <input type = "checkbox" (change)="onCheckChanged(item, $event)">{{item}}
+        </span>
+    </div>
+    <div>
+        <label>snack:
+            <select formControlName = "nut">
+                <option *ngFor = "let nut of nutsel" [value] = "nut">{{nut}}</option>
+            </select>
+        </label>
     </div>
 </form>
 <p>form value:{{coffeeForm.value|json}}</p>
