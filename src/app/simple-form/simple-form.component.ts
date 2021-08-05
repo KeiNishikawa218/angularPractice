@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./simple-form.component.scss']
 })
 export class SimpleFormComponent implements OnInit {
-  text1: string = "";
+  text1: string　= "";
   text2: string = "";
   result: string = "Let's add two numbers";
 

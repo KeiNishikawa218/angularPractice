@@ -27,16 +27,24 @@ export class ControlsComponent implements OnInit {
   }
 
   // Reference: https://github.com/angular/components/issues/1142
-  onCheckChanged(item: string, e: Event) {
-    const checkbox = e.target as HTMLInputElement;
+onCheckChanged(item: string, e: Event) {
+  const checkbox = e.target as HTMLInputElement;
 
-    let formArray = <FormArray>this.coffeeForm.controls.adds;
-    if (checkbox.checked) {
-      formArray.push(new FormControl(item));
-    } else {
-      let index = formArray.controls.findIndex(elm => elm.value == item)
-      formArray.removeAt(index);
-    }
+  let formArray = <FormArray>this.coffeeForm.controls.adds;
+  if (checkbox.checked) {
+    formArray.push(new FormControl(item));
+  } else {
+    let index = formArray.controls.findIndex(elm => elm.value == item)
+    formArray.removeAt(index);
+  }
+  // onCheckChanged(item: string, isChecked: boolean) {
+  //   let formArray = <FormArray>this.coffeeForm.controls.adds;
+  //   if (isChecked) {
+  //     formArray.push(new FormControl(item));
+  //   } else {
+  //     let index = formArray.controls.findIndex(elm => elm.value == item)
+  //     formArray.removeAt(index);
+  //   }
   }
 }
 
